@@ -1,0 +1,57 @@
+---
+- name: Ensure all machines are operational and install software
+  hosts: all
+  become: true  # Kasutab sudo't, et saada root-õigused
+  tasks:
+    - name: Update package manager (Debian/Ubuntu)
+      when: ansible_os_family == "Debian"
+      apt:
+        update_cache: yes
+
+    - name: Update package manager (RedHat/CentOS)
+      when: ansible_os_family == "RedHat"
+      dnf:
+        update_cache: yes
+
+    - name: Update package manager (OpenSUSE)
+      when: ansible_os_family == "Suse"
+      command: zypper refresh
+
+    - name: Install required packages (Debian/Ubuntu)
+      when: ansible_os_family == "Debian"
+      apt:
+        name:
+          - snmpd
+          - tmux
+          - mc
+          - wget
+          - tree
+          - git
+        state: present
+
+    - name: Install required packages (RedHat/CentOS)
+      when: ansible_os_family == "RedHat"
+      dnf:
+        name:
+          - epel-release
+          - net-snmp
+          - net-snmp-utils
+          - tmux
+          - mc
+          - wget
+          - tree
+          - git
+        state: present
+
+    - name: Install required packages (OpenSUSE)
+      when: ansible_os_family == "Suse"
+      command: zypper install -y net-snmp tmux mc wget tree git
+
+    - name: Check OS version
+      command: cat /etc/os-release
+      register: os_version
+
+    - name: Print OS and version
+      ansible.builtin.debug:
+         msg: OS is {{ ansible_distribution }} version {{ ansible_distribution_major_version }}
+...

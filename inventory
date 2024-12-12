@@ -1,0 +1,19 @@
+[linux]
+ljaaniste-dockerhost ansible_host="10.10.10.130" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+ljaaniste-ansible ansible_host="10.10.10.131" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+ljaaniste-ubuntu ansible_host="10.10.10.132" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+ljaaniste-centos ansible_host="10.10.10.133" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+ljaaniste-opensuse ansible_host="10.10.10.134" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+
+[debian]
+ljaaniste-dockerhost ansible_host="10.10.10.130" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+ljaaniste-ansible ansible_host="10.10.10.131" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+
+[ubuntu]
+ljaaniste-ubuntu ansible_host="10.10.10.132" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+
+[centos]
+ljaaniste-centos ansible_host="10.10.10.133" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
+
+[opensuse]
+ljaaniste-opensuse ansible_host="10.10.10.134" ansible_ssh_user='vagrant' ansible_ssh_pass='vagrant' ansible_become_pass='vagrant'
